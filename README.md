@@ -25,7 +25,7 @@ git clone
 ``` 
 で持ってくる。
 
-##4.dockertest内で
+## 4.dockertest内で
 ```
     docker compose build
     docker compose up
