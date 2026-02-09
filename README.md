@@ -1,25 +1,25 @@
 作成手順
 
-##1.dockerのインストール
-###Amazon Linux 2 の場合　下記のコマンドを入力：
+## 1.dockerのインストール
+Amazon Linux 2 の場合　下記のコマンドを入力：
 ```
 sudo yum install -y docker
 sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
-###インストールできたかどうか確認する
+インストールできたかどうか確認する
 ```
 sudo usermod -a -G docker ec2-user
 ```
 
-##2.作業用ディレクトリを作ってその中に移動（例：dockertest）
+## 2.作業用ディレクトリを作ってその中に移動（例：dockertest）
 ```
 mkdir dockertest
 cd dockertest
 ```
 
-##3.コードは　
+## 3.コードは　
 ```
 git clone
 ``` 
@@ -31,7 +31,7 @@ git clone
     docker compose up
 ```
 
-##5.DB(MySQL)にテーブルを作成
+## 5.DB(MySQL)にテーブルを作成
 今回作成したDockerコンテナ(コンテナ名はmysql)内のMySQLサーバーにmysqlコマンドで接続する場合は、
 ```
 docker compose exec mysql mysql example_db
@@ -39,7 +39,7 @@ docker compose exec mysql mysql example_db
 と入力
 
 
-###掲示板投稿テーブルを作成します。
+### 掲示板投稿テーブルを作成します。
 ```sql
 CREATE TABLE `bbs_entries` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -50,7 +50,7 @@ CREATE TABLE `bbs_entries` (
 );
 ```
 
-###usersテーブルの作成
+### usersテーブルの作成
 ```sql
 CREATE TABLE `users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -65,7 +65,7 @@ CREATE TABLE `users` (
 );
 ```
 
-###ユーザーとユーザーのフォロー関係を管理するテーブルのため、 user_relationships という名前でテーブルを作る。
+### ユーザーとユーザーのフォロー関係を管理するテーブルのため、 user_relationships という名前でテーブルを作る。
 ```sql
 CREATE TABLE `user_relationships` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
